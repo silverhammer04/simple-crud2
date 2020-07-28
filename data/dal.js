@@ -24,7 +24,7 @@ const readMovies = () => {
     return iou;
 }
 
-const readMovieByID (id) => {
+const readMovieByID = (id) => {
     const iou = new Promise((resolve, reject) => {
         MongoClient.connect(url, options, (err, client) => {
             assert.equal(err, null);           
