@@ -1,0 +1,19 @@
+This is a back up in case the DB gets deleted.
+
+[
+    {
+        "movie": "The Matrix",
+        "year": 1999,
+        "seen": true
+    },
+    {
+        "movie": "Fear and Loathing in Las Vegas",
+        "year": 1998,
+        "seen": true
+    },
+    {
+        "movie": "Big Trouble in Little China",
+        "year": 1986,
+        "seen": true
+    }
+]
