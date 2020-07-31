@@ -54,7 +54,23 @@ const createMovies = (movie) => {
     });
     return iou;
 }
+const deleteMovies = (id) => {
+    const iou = new Promise((resolve, reject) => {
+        MongoClient.connect(url, options, (err, client) => {
+            assert.equal(err, null);
+            const db = client.db(db_name);
+            const collection = db.collection(col_name);
+            collection.findOneAndDelete({_id: new ObjectID(id) }, (err, result)=>{
+                assert.equal(err, null);
+                resolve(result,);
+                client.close();
+            });
+        });
+    });
+  return iou;
+};
 module.exports = {
     readMovies,
-    createMovies
+    createMovies,
+    deleteMovies
 };

@@ -2,7 +2,8 @@ const express = require('express');
 const router = express.Router();
 const {
     readMovies,
-    createMovies
+    createMovies,
+    deleteMovies
 } = require('../../data/dal');
 
 //async style, but why? waiting for readMovies to run
@@ -17,4 +18,11 @@ router.post('/', async function(req, res )  {
         res.send(data);
     ;
 });
+
+router.delete('/:id', async function(req, res) {
+    const data = await deleteMovies(req.params.id); 
+        res.send(data)
+    });
+
+
 module.exports = router;
