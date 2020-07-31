@@ -6,6 +6,6 @@ const Movie = ({movie}) => {
             {movie.title}
         </li>
     )
-};
+}
 
 export default Movie

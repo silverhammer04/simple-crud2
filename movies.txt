@@ -4,16 +4,16 @@ This is a back up in case the DB gets deleted.
     {
         "title": "The Matrix",
         "year": 1999,
-        "seen": true
+        "seen": "yes"
     },
     {
         "title": "Fear and Loathing in Las Vegas",
         "year": 1998,
-        "seen": true
+        "seen": "yes"
     },
     {
         "title": "Big Trouble in Little China",
         "year": 1986,
-        "seen": true
+        "seen": "yes"
     }
 ]
