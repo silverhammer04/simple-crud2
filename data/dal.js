@@ -54,6 +54,25 @@ const createMovies = (movie) => {
     });
     return iou;
 }
+const updateMovies = (id, movie) => {
+    const iou = new Promise((resolve, reject) => {
+        MongoClient.connect(url, options, (err, client) => {
+            assert.equal(err, null);
+            const db = client.db(db_name);
+            const collection = db.collection(col_name);
+            collection.findAndModify({ _id: new ObjectID(id)},
+            {$set: {...product}},
+            {uspers: true},
+            (err, result) => {
+                assert.equal(err, null);
+                readMovieByID(result.value._id)
+                    .then(movie => resolve(movie))
+                    .then(() => client.close ());
+            })
+        });
+    });
+    return iou;
+}
 const deleteMovies = (id) => {
     const iou = new Promise((resolve, reject) => {
         MongoClient.connect(url, options, (err, client) => {
@@ -72,5 +91,6 @@ const deleteMovies = (id) => {
 module.exports = {
     readMovies,
     createMovies,
+    updateMovies,
     deleteMovies
 };
