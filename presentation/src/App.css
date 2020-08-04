@@ -2,10 +2,12 @@ ul {
   list-style: none;
   padding: 0;
 }
+li {
+  padding: 2px;
+}
 form {
   display: flex;
   flex-direction: column;
-  
   margin: 5px 40%;
 }
 
