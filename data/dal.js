@@ -60,9 +60,8 @@ const updateMovies = (id, movie) => {
             assert.equal(err, null);
             const db = client.db(db_name);
             const collection = db.collection(col_name);
-            collection.findAndModify({ _id: new ObjectID(id)},
-            {$set: {...product}},
-            {uspers: true},
+            collection.findOneAndUpdate({ _id: new ObjectID(id)},
+            {$set: {...movie}},
             (err, result) => {
                 assert.equal(err, null);
                 readMovieByID(result.value._id)

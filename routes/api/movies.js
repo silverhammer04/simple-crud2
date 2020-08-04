@@ -3,6 +3,7 @@ const router = express.Router();
 const {
     readMovies,
     createMovies,
+    updateMovies,
     deleteMovies
 } = require('../../data/dal');
 
@@ -15,6 +16,14 @@ router.get('/', async function(req, res) {
 router.post('/', async function(req, res )  {
     const body = req.body;
     const data = await createMovies(body);
+        res.send(data);
+    ;
+});
+
+router.patch('/:id', async function(req, res )  {
+    const body = req.body;
+    const id = req.params.id;
+    const data = await updateMovies(id, body);
         res.send(data);
     ;
 });
