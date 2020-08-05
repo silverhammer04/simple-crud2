@@ -1,29 +1,24 @@
 import React from 'react';
 
-export default class NewMovie extends React.Component {
+export default class UpdateMovie extends React.Component {
     state = {
-        title: "",
-        year: "",
-        seen: ""
+        title: this.props.movie.title,
+        year: this.props.movie.year,
+        seen: this.props.movie.seen
     };
     handleSubmit = (event) => {
         event.preventDefault();
         const api_url = process.env.REACT_APP_API_URL;
-        fetch(`${api_url}/movies`, {
-            method: "POST",
+        fetch(`${api_url}/movies/${this.props.movie._id}`, {
+            method: "PUT",
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(this.state) 
         }) .then(response => response.json())
             .then(data => console.log(data))
-            .then(() => {
-                this.setState({
-                    title: "",
-                    year: "",
-                    seen: ""
-                })
-            }) .then(this.props.refresh)            
+            .then(this.props.toggleForm)
+            .then(this.props.refresh)            
     }
     handleChange = (event) => {
         this.setState({ [event.target.name] : event.target.value});
@@ -50,7 +45,7 @@ export default class NewMovie extends React.Component {
                 
                 
                 <input type="submit"
-                    value="Add Movie"/>
+                    value="Update Movie"/>
             </form>           
         ) 
     }
