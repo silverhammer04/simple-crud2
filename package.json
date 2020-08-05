@@ -12,6 +12,7 @@
     "dotenv": "^8.2.0",
     "ejs": "~2.6.1",
     "express": "~4.16.1",
+    "heroku": "^7.42.6",
     "http-errors": "~1.6.3",
     "mongodb": "^3.5.9",
     "morgan": "~1.9.1",
